@@ -12,6 +12,7 @@
     "@apollo/client": "^3.13.1",
     "@as-integrations/next": "^3.2.0",
     "apollo-server-micro": "^3.13.0",
+    "framer-motion": "^12.4.10",
     "graphql": "^16.10.0",
     "graphql-tag": "^2.12.6",
     "mongoose": "^8.12.0",
