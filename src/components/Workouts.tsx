@@ -1,6 +1,7 @@
 'use client'
 
 import { gql, useQuery } from '@apollo/client'
+import Loader from '@/components/Loader'
 
 const GET_WORKOUTS = gql`
   query Workouts($userId: ID!) {
@@ -20,7 +21,7 @@ export default function Workouts({ userId }: { userId: string }) {
     variables: { userId },
   })
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <Loader />
   if (error) return <p>Error: {error.message}</p>
 
   return (
