@@ -14,7 +14,7 @@ export default async function DashboardPage() {
       <h1 className="text-3xl">
         Hello,{' '}
         <span className="text-green-500">
-          {session.user.name || session.user.email}!
+          {session?.user?.name || session?.user?.email}!
         </span>
       </h1>
     </div>
