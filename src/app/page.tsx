@@ -2,11 +2,11 @@ import Workouts from '@/components/Workouts'
 import ApolloWrapper from '@/lib/ApolloWrapper'
 import Loader from '@/components/Loader'
 
-export default function Home({ userId }: { userId: string }) {
+export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
       <ApolloWrapper>
-        {userId ? <Workouts userId={userId} /> : <Loader />}
+        <Loader />
       </ApolloWrapper>
     </div>
   )
