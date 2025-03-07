@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'evoFlow™',
-  description: 'Your personal workout AI trainer!',
+  description: '🧞‍♀️ Your personal workout AI trainer!',
 }
 
 export default async function RootLayout({
@@ -27,6 +27,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <span className="text-1xl absolute bottom-5 right-5">
+          🧞‍♀️ evo<span className="text-green-500 font-semibold">Flow</span>™
+        </span>
         {children}
       </body>
     </html>

@@ -23,17 +23,17 @@ export default function SignInPage() {
     if (res?.error) {
       setError('Invalid email or password')
     } else {
-      router.push('/dashboard') // Przekierowanie na dashboard po zalogowaniu
+      router.push('/dashboard')
     }
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black text-white">
+    <div className="flex items-center justify-center min-h-screen bg-black text-green-500">
       <form
         onSubmit={handleSubmit}
         className="p-8 bg-gray-900 rounded-lg shadow-md w-80"
       >
-        <h2 className="text-2xl font-semibold text-center mb-4">Sign In</h2>
+        <h2 className="text-2xl font-semibold mb-4">Sign In</h2>
 
         {error && (
           <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
@@ -56,11 +56,11 @@ export default function SignInPage() {
 
         <button
           type="submit"
-          className="w-full bg-green-500 hover:bg-green-600 p-2 rounded"
+          className="w-full bg-green-500 hover:bg-green-600 p-2 rounded text-gray-900 cursor-pointer transition"
         >
           Sign In
         </button>
-        <p className="mt-4 text-sm text-gray-400">
+        <p className="mt-4 text-sm text-gray-400 text-right">
           Don’t have an account?{' '}
           <Link href="/auth/signup" className="text-green-500 hover:underline">
             Sign up

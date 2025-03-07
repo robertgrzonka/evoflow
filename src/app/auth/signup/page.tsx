@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function Register() {
   const [email, setEmail] = useState('')
@@ -13,15 +14,12 @@ export default function Register() {
     e.preventDefault()
     setError('')
 
-    console.log('Sending request:', { email, password }) // <== DEBUG
     try {
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       })
-
-      console.log('Response status:', res.status) // <== DEBUG
 
       if (res.ok) {
         router.push('/auth/signin')
@@ -30,15 +28,17 @@ export default function Register() {
         setError(data.message)
       }
     } catch (error) {
-      console.error('Request error:', error) // <== DEBUG
       setError('Something went wrong')
     }
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-black text-green-500 px-4">
-      <h1 className="text-2xl font-bold mb-4">Register</h1>
-      <form onSubmit={handleSubmit} className="w-full max-w-sm">
+    <div className="flex items-center justify-center min-h-screen bg-black text-green-500">
+      <form
+        onSubmit={handleSubmit}
+        className="p-8 bg-gray-900 rounded-lg shadow-md w-80"
+      >
+        <h1 className="text-2xl font-semibold mb-4">Register</h1>
         <input
           type="email"
           placeholder="Email"
@@ -57,12 +57,18 @@ export default function Register() {
         />
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <button
-          className="w-full px-4 py-2 bg-green-500 text-black rounded hover:bg-green-600 transition"
+          className="w-full bg-green-500 hover:bg-green-600 p-2 rounded text-gray-900 cursor-pointer transition"
           onClick={() => console.log('Started')}
         >
           Register
         </button>
+        <p className="mt-4 text-sm text-gray-400 text-right">
+          Already a user?{' '}
+          <Link href="/auth/signin" className="text-green-500 hover:underline">
+            Sign in!
+          </Link>
+        </p>
       </form>
-    </main>
+    </div>
   )
 }
