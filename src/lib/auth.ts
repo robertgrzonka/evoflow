@@ -1,12 +1,10 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
-import clientPromise from './mongodb'
+import { connectToDatabase } from '@/lib/mongodb'
 import bcrypt from 'bcrypt'
-import User from '@/models/User' // Model użytkownika w MongoDB
+import User from '@/models/User'
 
 export const authOptions: NextAuthOptions = {
-  adapter: MongoDBAdapter(clientPromise),
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -15,17 +13,17 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
+        await connectToDatabase()
+
         if (!credentials?.email || !credentials?.password) {
           throw new Error('Invalid credentials')
         }
 
-        // Sprawdzenie użytkownika w bazie
         const user = await User.findOne({ email: credentials.email })
         if (!user) {
           throw new Error('User not found')
         }
 
-        // Sprawdzenie hasła
         const passwordMatch = await bcrypt.compare(
           credentials.password,
           user.password
@@ -34,7 +32,11 @@ export const authOptions: NextAuthOptions = {
           throw new Error('Invalid password')
         }
 
-        return { id: user.id, email: user.email }
+        return {
+          id: user.id.toString(),
+          email: user.email,
+          username: user.username,
+        }
       },
     }),
   ],
@@ -51,8 +53,8 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (token) {
         session.user = {
-          // id: token.id,
           email: token.email,
+          name: token.username as string,
         }
       }
       return session
@@ -61,6 +63,5 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: '/auth/signin',
-    // signUp: '/auth/signup',
   },
 }
