@@ -85,13 +85,13 @@
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
----
-
 ## 🎯 Contributing
 
-Contributions are welcome! If you’d like to improve evoFlow™, submit an issue or a pull request.
+Contributions are welcome! If you’d like to improve evoFlow™, submit an issue or a pull request. For major changes, please open an issue first to discuss what you would like to change.
 
----
+## 💻 Demo
+
+You can view the live demo of evoFlow™ at [evoflow.theguys.dev](https://evoflow.theguys.dev).
 
 ## 📜 License
 
