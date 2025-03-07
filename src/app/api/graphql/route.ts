@@ -2,7 +2,12 @@ import { ApolloServer } from '@apollo/server'
 import { startServerAndCreateNextHandler } from '@as-integrations/next'
 import { gql } from 'graphql-tag'
 import resolvers from '@/lib/resolvers'
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+
+interface Context {
+  req: NextRequest
+  res: NextResponse
+}
 
 const typeDefs = gql`
   type User {
@@ -46,7 +51,16 @@ const server = new ApolloServer({
 })
 
 const handler = startServerAndCreateNextHandler(server, {
-  context: async (req: NextRequest) => ({ req }),
+  context: async (req: NextRequest): Promise<Context> => ({
+    req,
+    res: new NextResponse(),
+  }),
 })
 
-export { handler as GET, handler as POST }
+export async function GET(req: NextRequest) {
+  return handler(req)
+}
+
+export async function POST(req: NextRequest) {
+  return handler(req)
+}
