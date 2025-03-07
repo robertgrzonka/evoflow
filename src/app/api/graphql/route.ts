@@ -10,6 +10,7 @@ const typeDefs = gql`
     username: String!
     email: String!
     createdAt: String!
+    password: String!
   }
 
   type Workout {
