@@ -1,4 +1,3 @@
-import Workouts from '@/components/Workouts'
 import ApolloWrapper from '@/lib/ApolloWrapper'
 import Loader from '@/components/Loader'
 
