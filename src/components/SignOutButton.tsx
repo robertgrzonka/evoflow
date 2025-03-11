@@ -10,7 +10,7 @@ export default function SignOutButton() {
         await signOut({ callbackUrl: '/auth/signin' })
         // redirect('/auth/signin')
       }}
-      className="mt-8 bg-red-500 hover:bg-red-600 p-2 rounded"
+      className="mt-8 bg-orange-400 hover:bg-orange-300 text-gray-900 p-2 rounded cursor-pointer transition font-medium pl-10 pr-10"
     >
       Sign Out
     </button>

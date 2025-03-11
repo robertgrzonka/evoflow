@@ -6,6 +6,8 @@ import SignOutButton from '@/components/SignOutButton'
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
 
+  console.log(session)
+
   if (!session) {
     redirect('/auth/signin')
   }
