@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky && husky install"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
@@ -16,9 +16,9 @@
       "tsc --noEmit"
     ],
     "**/*.{js,jsx,json,md}": [
-      "echo 'Processing file:'",
       "prettier --write"
-    ]
+    ],
+    "*.js": "eslint --cache --fix"
   },
   "dependencies": {
     "@apollo/client": "^3.13.1",
