@@ -14,11 +14,7 @@
       "eslint --fix",
       "prettier --write",
       "tsc --noEmit"
-    ],
-    "**/*.{js,jsx,json,md}": [
-      "prettier --write"
-    ],
-    "*.js": "eslint --cache --fix"
+    ]
   },
   "dependencies": {
     "@apollo/client": "^3.13.1",
