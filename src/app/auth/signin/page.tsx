@@ -35,10 +35,6 @@ export default function SignInPage() {
       >
         <h2 className="text-2xl font-semibold mb-4">Sign In</h2>
 
-        {error && (
-          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-        )}
-
         <input
           type="email"
           placeholder="Email"
@@ -53,6 +49,8 @@ export default function SignInPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
         <button
           type="submit"

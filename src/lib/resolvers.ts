@@ -25,10 +25,10 @@ const resolvers = {
   Mutation: {
     addUser: async (
       _: unknown,
-      { username, email }: { username: string; email: string },
+      { email }: { email: string },
     ): Promise<IUser> => {
       await connectToDatabase()
-      const newUser = new User({ username, email })
+      const newUser = new User({ email })
       await newUser.save()
       return newUser
     },

@@ -38,11 +38,11 @@ export default function Register() {
         onSubmit={handleSubmit}
         className="p-8 bg-gray-900 rounded-lg shadow-md w-80"
       >
-        <h1 className="text-2xl font-semibold mb-4">Register</h1>
+        <h2 className="text-2xl font-semibold mb-4">Register</h2>
         <input
           type="email"
           placeholder="Email"
-          className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded mb-4"
+          className="w-full p-2 rounded bg-gray-800 mb-3"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -50,12 +50,14 @@ export default function Register() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded mb-4"
+          className="w-full p-2 rounded bg-gray-800 mb-3"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
         {error && <p className="text-red-500 mb-4">{error}</p>}
+
         <button
           className="w-full bg-green-500 hover:bg-green-600 p-2 rounded text-gray-900 cursor-pointer transition"
           onClick={() => console.log('Started')}
