@@ -6,7 +6,18 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "tsc --noEmit"
+    ],
+    "**/*.{js,jsx,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@apollo/client": "^3.13.1",
@@ -34,6 +45,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
