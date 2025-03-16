@@ -6,7 +6,7 @@ if (!MONGODB_URI) {
   throw new Error('Missing MONGODB_URI environment variable')
 }
 
-let isConnected = false // Zapamiętuje stan połączenia
+let isConnected = false
 
 export async function connectToDatabase() {
   if (isConnected) {
@@ -16,13 +16,13 @@ export async function connectToDatabase() {
 
   try {
     await mongoose.connect(MONGODB_URI, {
-      dbName: 'evoFlowDB', // Upewnij się, że to twoja nazwa bazy
+      dbName: 'evoFlowDB',
     })
 
     isConnected = true
     console.log('🚀 Connected to MongoDB.')
   } catch (error) {
     console.error('❌ MongoDB connection error:', error)
-    process.exit(1) // Zatrzymuje aplikację, jeśli nie można się połączyć
+    process.exit(1)
   }
 }

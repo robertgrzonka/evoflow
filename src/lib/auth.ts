@@ -35,7 +35,6 @@ export const authOptions: NextAuthOptions = {
         return {
           id: user.id.toString(),
           email: user.email,
-          username: user.username,
         }
       },
     }),
@@ -54,7 +53,6 @@ export const authOptions: NextAuthOptions = {
       if (token) {
         session.user = {
           email: token.email,
-          name: token.username as string,
         }
       }
       return session
