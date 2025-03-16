@@ -15,7 +15,7 @@ const resolvers = {
     },
     workouts: async (
       _: unknown,
-      { userId }: { userId: string }
+      { userId }: { userId: string },
     ): Promise<IWorkout[]> => {
       await connectToDatabase()
       const objectId = new mongoose.Types.ObjectId(userId)
@@ -25,7 +25,7 @@ const resolvers = {
   Mutation: {
     addUser: async (
       _: unknown,
-      { username, email }: { username: string; email: string }
+      { username, email }: { username: string; email: string },
     ): Promise<IUser> => {
       await connectToDatabase()
       const newUser = new User({ username, email })
@@ -46,7 +46,7 @@ const resolvers = {
         weight: number
         reps: number
         sets: number
-      }
+      },
     ): Promise<IWorkout> => {
       await connectToDatabase()
       const newWorkout = new Workout({ userId, exercise, weight, reps, sets })

@@ -16,6 +16,7 @@
       "tsc --noEmit"
     ],
     "**/*.{js,jsx,json,md}": [
+      "echo 'Processing file:'",
       "prettier --write"
     ]
   },

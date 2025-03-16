@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     if (!email || !password) {
       return NextResponse.json(
         { message: 'Missing email or password' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     if (existingUser) {
       return NextResponse.json(
         { message: 'User already exists' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
@@ -32,12 +32,12 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       { message: 'User created', user: newUser },
-      { status: 201 }
+      { status: 201 },
     )
   } catch (error) {
     return NextResponse.json(
       { message: 'Error creating user' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

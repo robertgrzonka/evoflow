@@ -41,7 +41,7 @@ export default function Workouts({ userId }: { userId: string }) {
     GET_WORKOUTS,
     {
       variables: { userId },
-    }
+    },
   )
 
   if (loading) return <Loader />
