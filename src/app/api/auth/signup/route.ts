@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     )
   } catch (error) {
     return NextResponse.json(
-      { message: 'Error creating user' },
+      { message: `Error creating user: ${error}` },
       { status: 500 },
     )
   }
