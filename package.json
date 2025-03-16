@@ -12,7 +12,7 @@
   "lint-staged": {
     "**/*.{ts,tsx}": [
       "eslint --fix",
-      "prettier --write",
+      "prettier --write --ignore-unknown",
       "tsc --noEmit"
     ]
   },
@@ -44,6 +44,7 @@
     "eslint-config-next": "15.2.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
