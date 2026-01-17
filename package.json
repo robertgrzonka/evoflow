@@ -19,7 +19,7 @@
     "@apollo/server": "^4.11.3",
     "@as-integrations/next": "^3.2.0",
     "apollo-server-micro": "^3.13.0",
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
     "framer-motion": "^12.4.10",
     "graphql": "^16.10.0",
     "graphql-tag": "^2.12.6",
